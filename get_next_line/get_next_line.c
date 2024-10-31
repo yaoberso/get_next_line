@@ -6,7 +6,7 @@
 /*   By: yaoberso <yaoberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:56:59 by yaoberso          #+#    #+#             */
-/*   Updated: 2024/10/30 11:34:14 by yaoberso         ###   ########.fr       */
+/*   Updated: 2024/10/31 12:39:23 by yaoberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ static int	init_check(int fd, char **remain)
 			return (0);
 		}
 	}
-	if (*remain == NULL || (*remain)[0] == '\0')
-	{
-		return (0);
-	}
-	return (1);
+	return (*remain && (*remain)[0] != '\0');
 }
 
 static int	find_newline(char *remain, int *newlfound)
@@ -79,11 +75,6 @@ static char	*update_remainder(char **remain, char *line, int i, int newlfound)
 	if (newlfound)
 	{
 		temp = ft_strdup(*remain + i + 1);
-		if (*remain == NULL)
-		{
-			free(line);
-			return (NULL);
-		}
 		if (temp == NULL)
 		{
 			free(line);
@@ -102,7 +93,7 @@ static char	*update_remainder(char **remain, char *line, int i, int newlfound)
 
 char	*get_next_line(int fd)
 {
-	static char	*remain;
+	static char	*remain = NULL;
 	char		*line;
 	int			i;
 	int			newlfound;
@@ -121,11 +112,9 @@ char	*get_next_line(int fd)
 		remain = NULL;
 		return (NULL);
 	}
-	line = update_remainder(&remain, line, i, newlfound);
-	if (line == NULL)
+	if (update_remainder(&remain, line, i, newlfound) == NULL)
 	{
-		free(remain);
-		remain = NULL;
+		free(line);
 		return (NULL);
 	}
 	return (line);
