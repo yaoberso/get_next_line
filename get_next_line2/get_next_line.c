@@ -6,7 +6,7 @@
 /*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:14:23 by yann              #+#    #+#             */
-/*   Updated: 2024/11/01 14:30:45 by yann             ###   ########.fr       */
+/*   Updated: 2024/11/01 17:28:41 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	*clean_first_line(char *text)
 	char	*str;
 
 	i = 0;
-	while (text[i] && text[i] != '\n')
+	while (text[i] != '\0' && text[i] != '\n')
 		i++;
 	if (text[i] == '\0')
 	{
@@ -83,9 +83,10 @@ static char	*clean_first_line(char *text)
 	if (str == NULL)
 		return (NULL);
 	j = 0;
-	while (text[i++])
+	while (text[i++] != '\0')
 	{
-		str[j++] = text[i];
+		str[j] = text[i];
+		j++;
 	}
 	str[j] = '\0';
 	free(text);
