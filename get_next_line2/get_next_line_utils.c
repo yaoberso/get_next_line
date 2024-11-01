@@ -6,7 +6,7 @@
 /*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:14:03 by yann              #+#    #+#             */
-/*   Updated: 2024/11/01 14:25:16 by yann             ###   ########.fr       */
+/*   Updated: 2024/11/01 14:29:57 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ char	*ft_strjoin(char *s1, const char *s2)
 
 void	*ft_calloc(unsigned int count, unsigned int size)
 {
-	void	*ptr;
+	void			*ptr;
 	unsigned char	*p;
-	unsigned int	total_size = count * size;
+	unsigned int	total_size;
 	unsigned int	i;
 
+	total_size = count * size;
 	ptr = malloc(total_size);
 	if (ptr == NULL)
 		return (NULL);

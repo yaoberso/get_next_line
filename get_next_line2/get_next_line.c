@@ -6,7 +6,7 @@
 /*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:14:23 by yann              #+#    #+#             */
-/*   Updated: 2024/11/01 14:17:13 by yann             ###   ########.fr       */
+/*   Updated: 2024/11/01 14:30:45 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*read_first_line(int fd, char *text)
 		buffer[bytes_read] = '\0';
 		text = ft_strjoin(text, buffer);
 		if (ft_strchr(text, '\n') != NULL)
-			break;
+			break ;
 	}
 	free(buffer);
 	return (text);
@@ -106,4 +106,3 @@ char	*get_next_line(int fd)
 	text = clean_first_line(text);
 	return (output_text);
 }
-
