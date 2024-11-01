@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaoberso <yaoberso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:57:04 by yaoberso          #+#    #+#             */
-/*   Updated: 2024/10/31 13:32:08 by yaoberso         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:14:42 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*read_and_join(int fd, char *content, char *buffer)
 		content = ft_strjoin(content, buffer);
 		if (content == NULL)
 		{
-			free(buffer);
+			/*free(buffer);*/
 			return (NULL);
 		}
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -38,15 +38,15 @@ static char	*read_and_join(int fd, char *content, char *buffer)
 
 char	*ft_in_txt(int fd)
 {
-	char	*buffer;
-	char	*content;
+	static char	*buffer;
+	char		*content;
 
 	content = NULL;
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (buffer == NULL)
 		return (NULL);
 	content = read_and_join(fd, content, buffer);
-	free(buffer);
+	/*free(buffer);*/
 	return (content);
 }
 

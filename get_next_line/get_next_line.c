@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaoberso <yaoberso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:56:59 by yaoberso          #+#    #+#             */
-/*   Updated: 2024/10/31 12:39:23 by yaoberso         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:14:42 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ static char	*update_remainder(char **remain, char *line, int i, int newlfound)
 		free(*remain);
 		*remain = NULL;
 	}
+	free(temp);
 	return (line);
 }
 
