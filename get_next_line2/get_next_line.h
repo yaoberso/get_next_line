@@ -6,7 +6,7 @@
 /*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:14:29 by yann              #+#    #+#             */
-/*   Updated: 2024/11/01 13:44:35 by yann             ###   ########.fr       */
+/*   Updated: 2024/11/03 14:48:56 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42  // Définition d'une taille par défaut si non définie
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);

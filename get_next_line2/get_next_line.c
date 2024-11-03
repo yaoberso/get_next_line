@@ -6,7 +6,7 @@
 /*   By: yann <yann@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:14:23 by yann              #+#    #+#             */
-/*   Updated: 2024/11/01 17:28:41 by yann             ###   ########.fr       */
+/*   Updated: 2024/11/03 15:07:09 by yann             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,3 +107,17 @@ char	*get_next_line(int fd)
 	text = clean_first_line(text);
 	return (output_text);
 }
+
+/*#include <stdio.h>
+#include <fcntl.h>
+int main()
+{
+    int fd;
+
+    fd = open("test.txt", O_RDONLY);
+    printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+}
+*/
